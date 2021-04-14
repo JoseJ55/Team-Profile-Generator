@@ -1,43 +1,48 @@
 
-const inquirer = require("inquirer")
-const engineer = require("./lib/Engineer")
-const { choices } = require("yargs")
+const inquirer = require("inquirer");
+// const engineer = require("./lib/Engineer")
+const manager = require("./lib/Manager");
+const engineer = require("./lib/Engineer");
+const html = require("html")
+const path = require("path")
 
-const questions = [{
-    type: `input`,
-    name: `name`,
-    message: `Enter manager name: `
-},
-{
-    type: `input`,
-    name: `id`,
-    message: `Enter emplyee ID: `
-},
-{
-    type: `input`,
-    name: `email`,
-    message: `Enter email: `
-},
-{
-    type: `input`,
-    name: `officeNum`,
-    message: `Enter manager office number: `
-},
-{
-    type: `list`,
-    name: `member`,
-    message: `Would you like to add another team member: `,
-    choices: [`engineer`, `intern`, `Done`]
-}]
+const express = require('express');
+const app = express();
 
-const init = () => {
-    inquirer.prompt(questions).then((answers) => {
+let q = manager.questions;
+const init = (i) => {
+    inquirer.prompt(i).then((answers) => {
         const {name, id, email, officeNum, member} = answers
-        
-        if(member == 'engineer'){ // need to find a way to ask multiple times rn it stops after adding one.
-            engineer.engineerQuest()
+        if(i === manager.questions){
+            manager.addHtml(name, id, email, officeNum, member);
         }
+
+        switch(member){
+            case "engineer":
+                quests = engineer.questions;
+                console.log("working")
+                init(quests)
+                break;
+            case "intern":
+                console.log("intern")
+                break;
+            case "Done":
+                console.log("working")
+                break;
+        }
+        // console.log(name, id, email, officeNum, member)
     })
 }
 
-init();
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "dist")));
+
+app.get("/", (req, res) => {
+    res.render("index")
+})
+
+app.listen(3000, () => {
+    console.log("listening on port 3000")
+})
+
+init(q);
