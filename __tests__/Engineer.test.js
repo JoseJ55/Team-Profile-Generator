@@ -1,21 +1,53 @@
-// Need to find a way for this to work. For now it doesn't do anything.
-const { test, expect, it } = require('@jest/globals');
-const { describe } = require('yargs');
-const engineer = require('./../lib/Engineer');
+const Engineer = require('../lib/Engineer')
 
-describe('it ask question and returns the answers', () => {
-    let ans = {name: 'jeff', id: '1', email: '@gmail.com', github: 'vgon', member: 'None'};
-    const inquirer = {prompt: () => Promise.resolve(ans)}
+describe('Engineer', () => {
+    it('Should return the name of the engineer', () => {
+        const name = "Jose";
 
-    it("should equal ans", () => {
-        engineer({inquirer}).then(answers => {
-            answers.name.should.equal('jeff');
-            answers.id.should.equal('1');
-            answers.email.should.equal('@gmail.com');
-            answers.github.should.equal('vgon');
-            answers.member.should.equal('None');
-        })
+        const engineer = new Engineer(name);
+        
+        expect(engineer.getName()).toEqual(name);
+    });
+
+    it('should set the id of the engineer', () => {
+        const name = "Jose";
+        const id = 7;
+
+        const engineer = new Engineer(name, id)
+
+        expect(engineer.getId()).toEqual(id)
+    })
+
+    it('should set the email of the engineer', () => {
+        const name = "Jose";
+        const id = 7;
+        const email = "something@gmail.com"
+
+        const engineer = new Engineer(name, id, email)
+
+        expect(engineer.getEmail()).toEqual(email)
+    })
+
+    it('should set the github of the engineer', () => {
+        const name = "Jose";
+        const id = 7;
+        const email = "something@gmail.com"
+        const git = "engin.git";
+
+        const engineer = new Engineer(name, id, email, git)
+
+        expect(engineer.getGitHub()).toEqual(git)
+    })
+
+
+    it('should set the role as engineer', () => {
+        const name = "Jose";
+        const id = 7;
+        const email = "something@gmail.com";
+        const role = `Engineer`;
+
+        const engineer = new Engineer(name, id, email)
+
+        expect(engineer.getRole()).toEqual(role)
     })
 })
-
-// "echo \"Error: no test specified\" && exit 1"
