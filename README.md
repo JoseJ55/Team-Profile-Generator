@@ -3,6 +3,14 @@
 ## Description
 This project ask questions about team members and make a team profile. When someone uses this project they are prompted with questions where they need to answer. The user is first ask about the team manager and the manager's name, eamil, id, and office number then they are prompt to add more members. The user is able to add a engineer and intern when prompted there they can give the name, email, id, github, or school for the tem member. The information is then saved and put into an HTML where they are able to see it by refreshing.
 
+## Tools
+* Node.js
+* Javascript
+* HTMl
+* CSS
+* Express
+* Inquirer
+
 ## Usage
 The way to use this project is by using the command "node index.js" on the terminal then the user is prompted with question on the team manager. 
 
