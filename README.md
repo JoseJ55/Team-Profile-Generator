@@ -10,6 +10,10 @@ After answering questions for the manager they are then prompted to add more tea
 
 After the user enter all team members and choose "Done" they will need to go to their "localhost:3000" (Or a differnet port if changed) where they can see the team profile with the information they added.
 
+## Images
+
+![Application image](https://github.com/JoseJ55/Team-Profile-Generator/blob/main/images/teamProfileGenerator3.png?raw=true)
+
 ## Links
 https://github.com/JoseJ55/Team-Profile-Generator
 

@@ -208,8 +208,89 @@ const data =`<!DOCTYPE html>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile Generator</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            
+            :root {
+                --headerBackground: rgb(0, 204, 255);
+                --cardColor: #999;
+            }
+            
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            header {
+                background-color: var(--headerBackground);
+                display: flex;
+                justify-content: center;
+                padding: 10vh 0;
+            }
+            
+            #team {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 1vh 0;
+                width: 90%;
+                margin: auto;
+                justify-content: center;
+            }
+            
+            #member {
+                width: 28%;
+                /* margin: auto; */
+                border: grey .1rem solid;
+                margin: 1vh 2vw;
+            }
+            
+            #top {
+                background-color: var(--cardColor);
+                padding: 1vh 1vw;
+            }
+            
+            #top h2{
+                padding: 1vh 0;
+            }
+            
+            #top h3{
+                padding: 1vh 0;
+            }
+            
+            #bottom{
+                padding: 1vh 1vw;
+            }
+            
+            #id {
+                border: grey .1rem solid;
+                padding: 1vh 1vw;
+            }
+            
+            #email {
+                border-left: grey .1rem solid;
+                border-right: grey .1rem solid;
+                padding: 1vh 1vw;
+            }
+            
+            #on {
+                border: grey .1rem solid;
+                padding: 1vh 1vw;
+            }
+            
+            #github {
+                border: grey .1rem solid;
+                padding: 1vh 1vw;
+            }
+            
+            #school {
+                border: grey .1rem solid;
+                padding: 1vh 1vw;
+            }
+        </style>
     </head>
-    <body>
+    <body style="font-family: Arial, Helvetica, sans-serif;">
         <header>
             <h1>My Team</h1>
         </header>
@@ -328,7 +409,7 @@ const createTeam = () => {
 
 // The main function for express where the port and path are made with the listener.
 const frontStart = () => {
-    const PORT = 3000
+    const PORT = 3001
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname + page));
     })
